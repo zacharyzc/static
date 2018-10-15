@@ -13,6 +13,14 @@
         ul li {
             list-style-type: none;
         }
+        .clearfix:after {
+            content: "";
+            clear: both;
+            display: block;
+            height: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
         .orange {
             color: #ff7600;
             font-weight: 800;
@@ -28,6 +36,11 @@
             height: 45px;
         }
         .header-title {
+            font-size:18px;
+            font-family:PingFang-SC-Regular;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            line-height:48px;
             text-align: center
         }
         .queNav {
@@ -65,7 +78,7 @@
         }
         .tipFather {
             width: 88%;
-            text-align: center;
+            /* text-align: center; */
             margin-top: 15px;
             padding-left: 3%;
             margin-left: 5%;
@@ -73,16 +86,24 @@
         }
         .tip{
             min-width: 15%;
+            max-width: 22%;
             display: inline-block;
             background: #e9e6e6;
-            height: 35px;
-            border-radius: 32px;
+            height: 25px;
+            border-radius: 15px;
             margin-bottom: 10px;
             margin-right: 10px;
             padding-top: 10px;
         }
         .tip span {
-            font-size: 12px;
+            display: block;
+            padding: 0 5px;
+            line-height: 15px;
+            font-size: 11px;
+            white-space: nowrap;
+            overflow:hidden;
+            text-align: center;
+            text-overflow: ellipsis;
         }
         .tipCurrent {
             background: #ff7600 !important;
@@ -128,6 +149,10 @@
             background: #ff7600;
         }
         .news-title {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:2;
+            overflow: hidden;
             font-size: 18px;
             margin-left: 20px;
         }
@@ -136,13 +161,26 @@
             width: 100%;
         }
         .news-info {
-            float:left;
+            text-indent: 2em;
             font-size: 13px;
             margin-top: 5px;
             color: #ccc
         }
+        .left {
+            float: left
+        }
         .widthlimit {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4; 
+            overflow: hidden;
             width: 70%;
+        }
+        .normal {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:2;
+            overflow: hidden;
         }
         .news-img {
             float: left;
@@ -152,6 +190,7 @@
         }
         .news-bottom {
             display: block;
+            margin-top: 10px;
             margin-bottom: 10px;
         }
         .author {
@@ -176,11 +215,51 @@
             float: right;
             padding-right: 5px;
         }
+        .header-right {
+            position: absolute;
+            display: block;
+            background-image: url(./image/icon.png);
+            background-size: 30px 30px;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            right: 5px;
+        }
+        .header-back {
+            position: absolute;
+            display: block;
+            width: 12px;
+            height: 12px;
+            /* background-color: #ff7600; */
+            top: 18px;
+            left: 18px;
+            border-left: 2px solid #ff7600;
+            border-bottom: 2px solid #ff7600;
+            transform: rotate(45deg)
+        }
+        .btn_ask {
+            position: fixed;
+            color: #ffffff;
+            font-size: 18px;
+            top:85%;
+            left:0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width:150px;
+            height:50px;
+            background:rgba(255,118,0,1);
+            box-shadow:0px 0px 0px rgba(255,118,0,0.33);
+            border-radius:44px;
+        }
     </style>
     <body>
         <section class="main">
             <div class="header">
                 <h1 class="header-title">问答</h1>
+                <span class="header-back"></span>
+                <span class="header-right"></span>
             </div>
             <div class="queNav">共有<span class="orange">11.2万</span>条问题，<span class="orange">92%</span>的提问都受到了回答</div>
             <div class="queTab">
@@ -208,89 +287,82 @@
                 <ul class="news-ul">
                     <li class="news">
                         <span class="icon-ask"></span>
-                        <p class="news-title">这是标题这是标题这是标题这是标题</p>
+                        <p class="news-title">这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题</p>
                         <div class="news-main">
-                            <span class="news-info widthlimit">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
+                            <span class="news-info left widthlimit">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
                             <img class="news-img" src="./image/newImage1.png" />
                         </div>
-                        <div class="news-bottom">
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png"/><span class="intNum">9999</span></span>
                         </div>
                     </li>
-                    <li class="news">
+                    <li class="news clearfix">
                         <span class="icon-ask"></span>
                         <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
+                        <p class="news-info normal">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询询班次查询班次查询询班次查询班次查询询班次查询班次查询询班次查询班次查询</p>
+                        <p class="news-bottom clearfix">
+                            <span class="author">发布人发布人发布人</span>
+                            <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
+                            <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
+                        </p>
+                    </li>
+                    <li class="news clearfix">
+                        <span class="icon-ask"></span>
+                        <p class="news-title">这是标题这是标题这是标题这是标题</p>
+                        <p class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</p>
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
                         </div>
                     </li>
-                    <li class="news">
+                    <li class="news clearfix">
                         <span class="icon-ask"></span>
                         <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
+                        <p class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</p>
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
                         </div>
                     </li>
-                    <li class="news">
+                    <li class="news clearfix">
                         <span class="icon-ask"></span>
-                        <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
+                        <p class="news-title">这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题</p>
+                        <p class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</p>
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
                         </div>
                     </li>
-                    <li class="news">
+                    <li class="news clearfix">
                         <span class="icon-ask"></span>
                         <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
+                        <p class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</p>
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
                         </div>
                     </li>
-                    <li class="news">
+                    <li class="news clearfix">
                         <span class="icon-ask"></span>
                         <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
+                        <p class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</p>
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
                         </div>
                     </li>
-                    <li class="news">
+                    <li class="news clearfix">
                         <span class="icon-ask"></span>
                         <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
-                            <span class="author">发布人发布人发布人</span>
-                            <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
-                            <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
-                        </div>
-                    </li>
-                    <li class="news">
-                        <span class="icon-ask"></span>
-                        <p class="news-title">这是标题这是标题这是标题这是标题</p>
-                        <span class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</span>
-                        <img />
-                        <div class="news-bottom">
+                        <p class="news-info">班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询班次查询</p>
+                        <div class="news-bottom clearfix">
                             <span class="author">发布人发布人发布人</span>
                             <span class="interact"><img class="intimg" src="./image/answer.png" /><span class="intNum">666</span></span>
                             <span class="interact"><img class="intimg" src="./image/see.png" /><span class="intNum">9999</span></span>
@@ -298,6 +370,7 @@
                     </li>
                 </ul>
             </div>
+            <button class="btn_ask">我要提问</button>
         </section>
         
     </body>
